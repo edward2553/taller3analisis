@@ -5,14 +5,13 @@ main.py — Punto de entrada de la aplicación Métodos Numéricos.
 import tkinter as tk
 import tkinter.ttk as ttk
 
-BG        = "#0f1117"
-CARD      = "#1a1d27"
-ACCENT    = "#4f8ef7"
-TEXTO     = "#e8eaf0"
-TEXTO_DIM = "#8b8fa8"
-BORDE     = "#2a2d3a"
-ACTIVO_BG = "#1f2540"
-
+BG        = "#f4fbf7"
+CARD      = "#ffffff"
+ACCENT    = "#3aa981"   # verde principal refinado
+TEXTO     = "#1f2937"
+TEXTO_DIM = "#6b7280"
+BORDE     = "#d1e7dd"
+ACTIVO_BG = "#d9f2e6"   # verde claro activo
 
 class AppPrincipal(tk.Tk):
     def __init__(self):
