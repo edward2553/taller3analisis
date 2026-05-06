@@ -128,7 +128,7 @@ class VistaGaussSeidel(tk.Frame):
             row=0, column=0, columnspan=n, sticky="w", pady=(0, 6))
         ttk.Label(interior, text="b", style="Acento.TLabel").grid(
             row=0, column=n+1, sticky="w", padx=(16, 0), pady=(0, 6))
-        ttk.Label(interior, text="x₀ inicial", style="Acento.TLabel").grid(
+        ttk.Label(interior, text="Valores iniciales", style="Acento.TLabel").grid(
             row=0, column=n+3, sticky="w", padx=(16, 0), pady=(0, 6))
 
         for i in range(n):
