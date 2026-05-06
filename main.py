@@ -16,13 +16,10 @@ ACTIVO_BG = "#d9f2e6"   # verde claro activo
 class AppPrincipal(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Métodos Numéricos — Taller 3")
+        self.title("Métodos Numéricos — Taller")
         self.geometry("1160x700")
         self.minsize(900, 560)
-        self.configure(bg=BG)
-
-        # clam: tema cross-platform que no delega en macOS → colores siempre visibles
-        self._configurar_ttk()
+        self.configure(bg=BG, cursor="arrow")
 
         self._indicadores = {}
         self._botones_nav = {}
@@ -30,50 +27,6 @@ class AppPrincipal(tk.Tk):
 
         self._construir_layout()
         self._mostrar_vista("gauss_seidel")
-
-    # ── Estilos ttk globales ─────────────────────────────────────────────────
-
-    def _configurar_ttk(self):
-        s = ttk.Style(self)
-        s.theme_use("clam")
-
-        # Labels
-        s.configure("BG.TLabel",
-                    background=BG, foreground=TEXTO, font=("Helvetica", 11))
-        s.configure("Card.TLabel",
-                    background=CARD, foreground=TEXTO, font=("Helvetica", 11))
-        s.configure("Dim.TLabel",
-                    background=CARD, foreground=TEXTO_DIM, font=("Helvetica", 11))
-        s.configure("Acento.TLabel",
-                    background=CARD, foreground=ACCENT, font=("Helvetica", 10, "bold"))
-        s.configure("TituloCard.TLabel",
-                    background=CARD, foreground=TEXTO, font=("Helvetica", 13, "bold"))
-        s.configure("SidebarTitulo.TLabel",
-                    background=CARD, foreground=TEXTO, font=("Helvetica", 16, "bold"))
-        s.configure("SidebarSub.TLabel",
-                    background=CARD, foreground=TEXTO_DIM, font=("Helvetica", 9))
-        s.configure("SidebarSec.TLabel",
-                    background=CARD, foreground=TEXTO_DIM, font=("Helvetica", 9, "bold"))
-
-        # Entries
-        s.configure("Input.TEntry",
-                    fieldbackground="#1e2235",
-                    foreground=TEXTO,
-                    insertcolor=TEXTO,
-                    selectbackground=ACCENT,
-                    selectforeground=TEXTO,
-                    bordercolor="#3a4060",
-                    lightcolor="#3a4060",
-                    darkcolor="#3a4060",
-                    relief="flat")
-        s.map("Input.TEntry",
-              bordercolor=[("focus", ACCENT)],
-              lightcolor=[("focus", ACCENT)],
-              darkcolor=[("focus", ACCENT)])
-
-        # Text widget no es ttk pero forzamos fuente por defecto
-        self.option_add("*Text.background", CARD)
-        self.option_add("*Text.foreground", TEXTO)
 
     # ── Layout ──────────────────────────────────────────────────────────────
 

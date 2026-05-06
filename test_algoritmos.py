@@ -21,8 +21,8 @@ print("=" * 50)
 print("GAUSS-SEIDEL")
 print("=" * 50)
 solucion, iteraciones, convergio = gauss_seidel(
-    matriz_A=A,
-    vector_b=b,
+    matriz_A_coeficientes=A,
+    vector_b_terminos_independientes=b,
     aproximacion_inicial=[0.0, 0.0],
     tolerancia=1e-4,
     max_iteraciones=15

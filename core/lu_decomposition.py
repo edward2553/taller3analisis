@@ -1,12 +1,3 @@
-"""
-Descomposición LU
------------------
-Factoriza una matriz A en L (triangular inferior) y U (triangular superior),
-luego las usa para resolver sistemas y calcular la matriz inversa.
-Basado en los pseudocódigos entregados por el docente.
-"""
-
-
 def lu_descomponer(matriz_A):
     """
     Factoriza A en L y U tal que A = L * U.
