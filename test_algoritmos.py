@@ -5,9 +5,6 @@ Sistema de ejemplo:
    x₁ + 3x₂ = 10
 Solución exacta: x₁ = 1.727, x₂ = 2.757
 """
-import sys
-sys.path.insert(0, '/home/claude/metodos_numericos')
-
 from core.gauss_seidel import gauss_seidel
 from core.lu_decomposition import lu_resolver, lu_calcular_inversa
 
@@ -21,8 +18,8 @@ print("=" * 50)
 print("GAUSS-SEIDEL")
 print("=" * 50)
 solucion, iteraciones, convergio = gauss_seidel(
-    matriz_A=A,
-    vector_b=b,
+    matriz_A_coeficientes=A,
+    vector_b_terminos_independientes=b,
     aproximacion_inicial=[0.0, 0.0],
     tolerancia=1e-4,
     max_iteraciones=15

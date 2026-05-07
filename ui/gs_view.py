@@ -107,8 +107,8 @@ class VistaGaussSeidel(tk.Frame):
 
     def _generar_matriz(self):
         try:
-            n = int(self.var_n.get())
-            if not (1 <= n <= 10):
+            n_ecuaciones_a_mostrar_ui = int(self.var_n.get())
+            if not (1 <= n_ecuaciones_a_mostrar_ui <= 10):
                 raise ValueError
         except ValueError:
             messagebox.showerror("Error", "n debe ser un entero entre 1 y 10.")
@@ -125,33 +125,33 @@ class VistaGaussSeidel(tk.Frame):
         interior.pack(padx=16, pady=12)
 
         ttk.Label(interior, text="Matriz A", style="Acento.TLabel").grid(
-            row=0, column=0, columnspan=n, sticky="w", pady=(0, 6))
+            row=0, column=0, columnspan=n_ecuaciones_a_mostrar_ui, sticky="w", pady=(0, 6))
         ttk.Label(interior, text="b", style="Acento.TLabel").grid(
-            row=0, column=n+1, sticky="w", padx=(16, 0), pady=(0, 6))
+            row=0, column=n_ecuaciones_a_mostrar_ui+1, sticky="w", padx=(16, 0), pady=(0, 6))
         ttk.Label(interior, text="Valores iniciales", style="Acento.TLabel").grid(
-            row=0, column=n+3, sticky="w", padx=(16, 0), pady=(0, 6))
+            row=0, column=n_ecuaciones_a_mostrar_ui+3, sticky="w", padx=(16, 0), pady=(0, 6))
 
-        for i in range(n):
+        for i in range(n_ecuaciones_a_mostrar_ui):
             fila_a = []
-            for j in range(n):
+            for j in range(n_ecuaciones_a_mostrar_ui):
                 e = ttk.Entry(interior, width=7, style="Input.TEntry")
                 e.grid(row=i+1, column=j, padx=2, pady=2)
                 fila_a.append(e)
             self.entradas_A.append(fila_a)
 
             ttk.Label(interior, text="|",
-                      style="Dim.TLabel").grid(row=i+1, column=n, padx=8)
+                      style="Dim.TLabel").grid(row=i+1, column=n_ecuaciones_a_mostrar_ui, padx=8)
 
             eb = ttk.Entry(interior, width=7, style="Input.TEntry")
-            eb.grid(row=i+1, column=n+1, padx=2, pady=2)
+            eb.grid(row=i+1, column=n_ecuaciones_a_mostrar_ui+1, padx=2, pady=2)
             self.entradas_b.append(eb)
 
             ttk.Label(interior, text="|",
-                      style="Dim.TLabel").grid(row=i+1, column=n+2, padx=8)
+                      style="Dim.TLabel").grid(row=i+1, column=n_ecuaciones_a_mostrar_ui+2, padx=8)
 
             ex = ttk.Entry(interior, width=7, style="Input.TEntry")
             ex.insert(0, "0")
-            ex.grid(row=i+1, column=n+3, padx=2, pady=2)
+            ex.grid(row=i+1, column=n_ecuaciones_a_mostrar_ui+3, padx=2, pady=2)
             self.entradas_x0.append(ex)
 
         self._limpiar()
@@ -208,9 +208,9 @@ class VistaGaussSeidel(tk.Frame):
         self._mostrar(iters, sol, conv)
 
     def _mostrar(self, iters, sol, conv):
-        n, w = len(sol), 12
+        n_de_ecuaciones, w = len(sol), 12
         enc = (f"{'Iter':>4}  "
-               + "".join(f"{'x'+str(k+1):>{w}}  " for k in range(n))
+               + "".join(f"{'x'+str(k+1):>{w}}  " for k in range(n_de_ecuaciones))
                + f"{'Error':>12}")
         sep = "─" * len(enc)
         lineas = [sep, enc, sep]
